@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "0d572687-db62-45c3-b5ef-f04d5e8a7159",
+		"name": "BCP-EXCHANGERATE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "EXCHANGE RATE",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJjdmFsbGVqbyIsInVuaXF1ZV9uYW1lIjoiQ2VzYXIgVmFsbGVqbyIsIm5iZiI6MTY0NzAxNDU1MSwiZXhwIjoxNjQ3MDI1MzUxLCJpYXQiOjE2NDcwMTQ1NTF9.RLF793EHIgAkOH1oGf6-VxahqHs9vw41b5_CO2E82no",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/1.0/ExchangeRates?originCurrency=USD&destinationCurrency=PEN&amount=100",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"1.0",
+								"ExchangeRates"
+							],
+							"query": [
+								{
+									"key": "originCurrency",
+									"value": "USD"
+								},
+								{
+									"key": "destinationCurrency",
+									"value": "PEN"
+								},
+								{
+									"key": "amount",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SAVE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJjdmFsbGVqbyIsInVuaXF1ZV9uYW1lIjoiQ2VzYXIgVmFsbGVqbyIsIm5iZiI6MTY0NzAxNDU1MSwiZXhwIjoxNjQ3MDI1MzUxLCJpYXQiOjE2NDcwMTQ1NTF9.RLF793EHIgAkOH1oGf6-VxahqHs9vw41b5_CO2E82no",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"originCurrency\": \"USD\",\r\n  \"destinationCurrency\": \"PEN\",\r\n  \"exchangeRate\": 3.80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/1.0/ExchangeRates",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"1.0",
+								"ExchangeRates"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTHENTICATION",
+			"item": [
+				{
+					"name": "AUTH",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"cvallejo\",\r\n  \"password\": \"123qwe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/1.0/Users/Auth",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"1.0",
+								"Users",
+								"Auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
