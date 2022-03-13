@@ -51,7 +51,7 @@ namespace BCP.ExchangeRate.WebAPI
                     name: CorsConfiguration,
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:60240")
+                        builder.WithOrigins("http://localhost:4200")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                     });
