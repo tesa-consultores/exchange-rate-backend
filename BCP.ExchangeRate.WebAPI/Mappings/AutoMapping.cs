@@ -10,7 +10,8 @@ namespace BCP.ExchangeRate.WebAPI.Mappings
         {
 
             CreateMap<AuthRequest, User>()
-                .ForMember(dest => dest.Username, source => source.MapFrom(source => source.Username));
+                .ForMember(dest => dest.Username, source => source.MapFrom(source => source.Username))
+                .ForMember(dest => dest.FirstName, source => source.MapFrom(source => source.Username));
 
         }
     }

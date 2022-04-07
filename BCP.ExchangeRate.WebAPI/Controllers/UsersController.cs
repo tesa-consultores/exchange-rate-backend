@@ -7,6 +7,7 @@ using BCP.ExchangeRate.WebAPI.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -33,9 +34,14 @@ namespace BCP.ExchangeRate.WebAPI.Controllers
 
         // POST api/<UsersController>
         [HttpPost("Auth")]
+        [SwaggerOperation(Summary = "Servicio de autenticacion.", Description = "Servicio de tipo POST de autenticacion de credenciales. En caso las credenciales enviadas sean las correctas, se generara" +
+            "un token de seguridad para el consumo de los demas servicios.")]
+        [SwaggerResponse(200, "La solicitud se ha realizado correctamente.")]
         public async Task<AuthResponse> Autenticar([FromBody] AuthRequest model)
         {
             User auth = await _userBL.Authenticate(model.Username, model.Password);
+
+            User user = _mapper.Map<User>(model);
 
             AuthResponse response = new AuthResponse();
 
